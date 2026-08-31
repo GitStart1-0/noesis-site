@@ -2095,6 +2095,30 @@
 		width: 100%;
 	}
 
+	.noesis-release {
+		grid-template-areas:
+			"platform platform"
+			"status timer";
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 6px 14px;
+		min-height: 0;
+
+		&__platform {
+			grid-area: platform;
+			align-self: start;
+		}
+
+		&__status {
+			grid-area: status;
+		}
+
+		&__timer {
+			grid-area: timer;
+			align-self: center;
+			font-size: 11px;
+		}
+	}
+
 	.phone {
 		width: min(320px, calc(100vw - 64px));
 		min-width: 280px;
