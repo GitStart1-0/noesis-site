@@ -693,15 +693,6 @@
 		}
 	}
 
-	&__slide--explanation {
-		background: #e9e5db;
-	}
-
-	&__slide--tournament {
-		background: var(--ink);
-		color: #fff;
-	}
-
 	&__controls {
 		position: absolute;
 		top: 80.8%;
@@ -791,38 +782,6 @@
 			border-radius: 999px;
 			background: var(--ink);
 		}
-	}
-}
-
-.phone-slide {
-	&__meta {
-		display: flex;
-		justify-content: space-between;
-		color: #767676;
-		font-size: 8px;
-		font-weight: 900;
-		letter-spacing: 0.09em;
-	}
-
-	&__eyebrow,
-	&__hint,
-	&__body {
-		font-size: 11px;
-		line-height: 1.55;
-	}
-
-	&__eyebrow {
-		color: #67615a;
-		font-weight: 800;
-	}
-
-	&__body {
-		color: #4f4b45;
-	}
-
-	&__hint {
-		margin-top: auto;
-		color: #777;
 	}
 }
 
@@ -1146,67 +1105,6 @@
 		&:active {
 			cursor: grabbing;
 		}
-	}
-}
-
-.phone-answer-list,
-.phone-ranking {
-	display: grid;
-	gap: 7px;
-
-	span {
-		display: flex;
-		min-height: 35px;
-		align-items: center;
-		justify-content: space-between;
-		padding: 8px 10px;
-		border: 1px solid #dedede;
-		border-radius: 9px;
-		background: #fff;
-		font-size: 10px;
-		font-weight: 700;
-	}
-}
-
-.phone-answer-list .is-correct {
-	border-color: var(--ink);
-	background: var(--ink);
-	color: #fff;
-}
-
-.phone-source {
-	margin-top: auto;
-	padding-top: 12px;
-	border-top: 1px solid rgba(10, 10, 10, 0.16);
-	color: #6b665e;
-	font-size: 9px;
-	font-weight: 800;
-}
-
-.phone-slider__slide--tournament {
-	.phone-slide__meta,
-	.phone-slide__hint {
-		color: #929292;
-	}
-
-	.phone-ranking span {
-		border-color: #303030;
-		background: #151515;
-		color: #ddd;
-	}
-
-	.phone-ranking b {
-		color: #777;
-	}
-
-	.phone-ranking em {
-		font-style: normal;
-	}
-
-	.phone-ranking .is-player {
-		border-color: #fff;
-		background: #fff;
-		color: var(--ink);
 	}
 }
 

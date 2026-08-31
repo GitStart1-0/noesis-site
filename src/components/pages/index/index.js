@@ -73,7 +73,6 @@ function initTopicListHover() {
 initTopicListHover()
 
 const phoneSlider = document.querySelector('[data-phone-slider]')
-phoneSlider?.querySelectorAll('.phone-slider__slide--tournament').forEach((slide) => slide.remove())
 const phoneSlides = phoneSlider?.querySelectorAll('.swiper-slide')
 
 if (phoneSlider && phoneSlides && phoneSlides.length > 1) {
