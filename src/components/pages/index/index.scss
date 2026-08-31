@@ -1803,9 +1803,7 @@
 
 	&__figure {
 		max-width: 290px;
-		margin: 22px 0 0;
-		padding-top: 24px;
-		border-top: 1px solid var(--line);
+		margin: 4px 0 0;
 
 		svg {
 			display: block;
@@ -1813,18 +1811,6 @@
 			height: auto;
 		}
 
-		figcaption {
-			margin-top: 12px;
-			color: #403c35;
-			font-size: 13px;
-			font-weight: 400;
-			line-height: 1.55;
-		}
-
-		b {
-			color: var(--ink);
-			font-weight: 700;
-		}
 	}
 
 	&__line,
@@ -2217,7 +2203,7 @@
 	}
 
 	.noesis-methodology__figure {
-		margin-top: 28px;
+		margin-top: 4px;
 	}
 
 	.noesis-features {
