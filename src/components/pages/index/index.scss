@@ -1134,7 +1134,7 @@
 
 	&__head {
 		display: grid;
-		gap: 14px;
+		gap: 22px;
 		max-width: 680px;
 		margin-inline: auto;
 		padding-block-end: 52px;
@@ -1157,7 +1157,7 @@
 
 	&__copy {
 		display: grid;
-		gap: 26px;
+		gap: 22px;
 	}
 
 	.noesis-kicker {
@@ -1508,7 +1508,6 @@
 	background: #f7f1e5;
 
 	.noesis-section__head {
-		gap: 22px;
 		max-width: 760px;
 		padding-block-end: 54px;
 	}
@@ -1540,7 +1539,7 @@
 		display: grid;
 		grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
 		@include adaptiveValue("column-gap", 96, 42);
-		row-gap: 20px;
+		row-gap: 22px;
 		align-items: start;
 	}
 
@@ -1791,6 +1790,11 @@
 		align-items: start;
 	}
 
+	&__rail {
+		display: grid;
+		gap: 22px;
+	}
+
 	&__rail .noesis-title {
 		max-width: 360px;
 		font-size: 46px;
@@ -1799,7 +1803,7 @@
 
 	&__figure {
 		max-width: 290px;
-		margin: 44px 0 0;
+		margin: 22px 0 0;
 		padding-top: 24px;
 		border-top: 1px solid var(--line);
 
@@ -2099,7 +2103,7 @@
 	&__inner {
 		display: grid;
 		justify-items: center;
-		gap: 24px;
+		gap: 22px;
 	}
 
 	.noesis-kicker {
