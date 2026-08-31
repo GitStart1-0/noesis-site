@@ -1491,23 +1491,18 @@
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 22px;
-	perspective: 1100px;
 
 	article {
 		position: relative;
 		counter-increment: feature;
-		display: grid;
-		min-height: 194px;
-		gap: 12px;
-		align-content: start;
-		padding: 28px;
+		display: block;
+		min-height: 244px;
+		overflow: hidden;
+		padding: 0;
 		border: 1px solid var(--line);
 		border-radius: 3px;
 		background: var(--paper);
-		transform: rotateX(0) translateY(0);
-		transform-origin: 50% 0;
-		transform-style: preserve-3d;
-		transition: border-color 0.35s ease, box-shadow 0.45s ease, transform 0.56s cubic-bezier(0.22, 0.61, 0.36, 1);
+		transition: border-color 0.35s ease, box-shadow 0.45s ease;
 
 		&::after {
 			content: counter(feature, decimal-leading-zero);
@@ -1519,11 +1514,22 @@
 			font-size: 12px;
 		}
 
-		&:hover {
-			border-color: var(--accent);
-			box-shadow: 0 24px 34px rgba(98, 71, 32, 0.16);
-			transform: rotateX(-9deg) translateY(-8px);
-		}
+	}
+
+	&__track {
+		position: absolute;
+		top: 28px;
+		right: 28px;
+		left: 28px;
+		height: calc(200% - 56px);
+		transition: transform 0.62s cubic-bezier(0.22, 0.61, 0.36, 1);
+	}
+
+	&__content {
+		display: grid;
+		height: 50%;
+		gap: 12px;
+		align-content: start;
 	}
 
 	.noesis-feature__icon {
@@ -1534,24 +1540,23 @@
 		justify-content: center;
 		margin-block-end: 20px;
 
-		svg {
+		img {
 			width: 30px;
 			height: 30px;
-			fill: none;
-			stroke: var(--accent);
-			stroke-linecap: round;
-			stroke-linejoin: round;
-			stroke-width: 1.45;
-
-			path {
-				stroke-dasharray: 180;
-				stroke-dashoffset: 180;
-			}
+			object-fit: contain;
+			filter: sepia(0.78) saturate(1.25) hue-rotate(350deg);
 		}
 	}
 
-	article:hover .noesis-feature__icon svg path {
-		animation: noesis-feature-icon-draw 0.88s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+	@media (hover: hover) and (pointer: fine) {
+		article:hover {
+			border-color: var(--accent);
+			box-shadow: 0 16px 34px rgba(98, 71, 32, 0.1);
+
+			.noesis-features__track {
+				transform: translateY(-50%);
+			}
+		}
 	}
 
 	h3 {
@@ -1569,30 +1574,9 @@
 	}
 }
 
-@keyframes noesis-feature-icon-draw {
-	to {
-		stroke-dashoffset: 0;
-	}
-}
-
-@media (hover: none) {
-	.noesis-feature__icon svg path {
-		stroke-dashoffset: 0;
-	}
-}
-
 @media (prefers-reduced-motion: reduce) {
-	.noesis-features article {
+	.noesis-features__track {
 		transition: none;
-
-		&:hover {
-			transform: none;
-		}
-	}
-
-	.noesis-feature__icon svg path {
-		animation: none;
-		stroke-dashoffset: 0;
 	}
 }
 

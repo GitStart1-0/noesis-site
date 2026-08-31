@@ -15,6 +15,26 @@ if (navigationEntry?.type === 'reload') {
 
 initSectionPagination()
 
+function initFeatureCardLoops() {
+	document.querySelectorAll('.noesis-features article').forEach((card) => {
+		if (card.querySelector('.noesis-features__track')) return
+
+		const content = document.createElement('div')
+		content.className = 'noesis-features__content'
+		content.append(...card.children)
+
+		const duplicate = content.cloneNode(true)
+		duplicate.setAttribute('aria-hidden', 'true')
+
+		const track = document.createElement('div')
+		track.className = 'noesis-features__track'
+		track.append(content, duplicate)
+		card.append(track)
+	})
+}
+
+initFeatureCardLoops()
+
 function initTopicListHover() {
 	const topicList = document.querySelector('.noesis-topic-list')
 	const rows = topicList ? [...topicList.querySelectorAll('li')] : []
