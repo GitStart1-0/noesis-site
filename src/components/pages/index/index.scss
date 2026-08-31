@@ -1834,7 +1834,7 @@
 	}
 
 	&__line {
-		stroke-dasharray: 6 6;
+		stroke-dasharray: 180;
 		stroke-width: 1.25;
 	}
 
@@ -1936,7 +1936,7 @@
 
 	.noesis-methodology .noesis-methodology__line {
 		stroke-dashoffset: 180;
-		transition: stroke-dashoffset 1.2s ease 0.25s;
+		transition: stroke-dashoffset 1.2s ease 0.5s;
 	}
 
 	.noesis-methodology .noesis-methodology__node {
