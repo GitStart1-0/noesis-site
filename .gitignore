@@ -1,0 +1,11 @@
+node_modules
+unused-media
+.npm-cache
+dist
+zip
+.vscode
+backend
+reload.txt
+build
+package-lock.json
+dev-server.log

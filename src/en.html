@@ -1,0 +1,23 @@
+<template src="@components/templates/main/main.html" locals='{
+		"title":"Mythos: Quiz - intellectual learning platform",
+		"lang":"en",
+		"preloader": {
+			"enable":"false",
+			"once":"false"
+		},
+		"keywords":"Mythos: Quiz, quizzes, debates, learning, education, tournaments",
+		"description":"Mythos: Quiz is a mobile app for intellectual leisure with quizzes, levels, debates, tournaments, a glossary and saved questions."
+	}'>
+	<block name="header">
+		<include src="@components/layout/header/header-en.html" locals='{"active":"Home"}'></include>
+	</block>
+	<block name="main">
+		<include src="@components/pages/index/index-en.html" locals='{}'></include>
+	</block>
+	<block name="footer">
+		<include src="@components/layout/footer/footer-en.html" locals='{}'></include>
+	</block>
+	<block name="popup">
+	</block>
+</template>
+

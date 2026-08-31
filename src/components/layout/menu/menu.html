@@ -1,0 +1,33 @@
+<div class="header__menu menu">
+	<button type="button" data-fls-menu class="menu__icon icon-menu" aria-label="Відкрити меню"><span></span></button>
+	<nav class="menu__body">
+		<ul class="menu__list">
+			<each loop='item in [
+					{"href": "#features","ancor": "Можливості"},
+					{"href": "#categories","ancor": "Категорії"},
+					{"href": "#debates","ancor": "Чому Mythos: Quiz"},
+					{"href": "#interface","ancor": "Інтерфейс"}
+				]'>
+				<if condition="'[[active]]' === '[[item.ancor]]'">
+					<li class="menu__item">
+						<a href="[[item.href]]" data-fls-scrollto="[[item.href]]" data-fls-scrollto-header class="menu__link menu__link--active">[[item.ancor]]</a>
+					</li>
+				</if>
+				<else>
+					<li class="menu__item">
+						<a href="[[item.href]]" data-fls-scrollto="[[item.href]]" data-fls-scrollto-header class="menu__link">[[item.ancor]]</a>
+					</li>
+				</else>
+			</each>
+		</ul>
+		<a class="menu__cta" href="#download" data-fls-scrollto="#download" data-fls-scrollto-header>Завантажити застосунок</a>
+	</nav>
+</div>
+
+<!-- 
+<fetch url="@components/layout/menu/menu.json">
+	<each loop='item in response'>
+	</each>
+</fetch>
+-->
+
