@@ -1782,6 +1782,11 @@
 .noesis-methodology {
 	background: #f5f0e4;
 
+	.noesis-kicker {
+		color: #8a642c;
+		font-size: 11px;
+	}
+
 	&__grid {
 		display: grid;
 		grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1fr);
@@ -1809,9 +1814,9 @@
 
 		figcaption {
 			margin-top: 12px;
-			color: var(--muted);
-			font-size: 12px;
-			font-weight: 300;
+			color: #403c35;
+			font-size: 13px;
+			font-weight: 400;
 			line-height: 1.55;
 		}
 
@@ -1839,9 +1844,9 @@
 	}
 
 	&__figure text {
-		fill: var(--muted);
+		fill: #403c35;
 		font-family: "Courier New", monospace;
-		font-size: 8px;
+		font-size: 9px;
 		letter-spacing: 0.03em;
 		text-anchor: middle;
 	}
@@ -1850,10 +1855,10 @@
 		display: grid;
 		gap: 22px;
 		max-width: 680px;
-		color: var(--muted);
-		font-size: 17px;
-		font-weight: 300;
-		line-height: 1.72;
+		color: #403c35;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.68;
 
 		p {
 			margin: 0;
@@ -1876,16 +1881,17 @@
 		margin-block: 6px;
 		padding: 25px 28px;
 		border-left: 2px solid var(--accent);
-		background: rgba(201, 165, 102, 0.08);
-		color: var(--muted);
-		font-size: 14px;
+		background: #eee2ca;
+		color: #403c35;
+		font-size: 15px;
+		font-weight: 400;
 		line-height: 1.65;
 
 		&::before {
 			content: "";
 			position: absolute;
 			inset: 0;
-			background: rgba(201, 165, 102, 0.12);
+			background: rgba(201, 165, 102, 0.16);
 			transform: scaleX(0);
 			transform-origin: left center;
 		}
@@ -1902,7 +1908,7 @@
 
 	&__label {
 		margin-bottom: 8px !important;
-		color: var(--accent);
+		color: #8a642c;
 		font-family: "Courier New", monospace;
 		font-size: 10px;
 		font-weight: 700;
