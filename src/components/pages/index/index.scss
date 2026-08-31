@@ -1502,6 +1502,7 @@
 		border: 1px solid var(--line);
 		border-radius: 3px;
 		background: var(--paper);
+		perspective: 900px;
 		transition: border-color 0.35s ease, box-shadow 0.45s ease;
 
 		&::after {
@@ -1522,6 +1523,8 @@
 		right: 28px;
 		left: 28px;
 		height: calc(200% - 56px);
+		transform-style: preserve-3d;
+		will-change: transform;
 		transition: transform 0.62s cubic-bezier(0.22, 0.61, 0.36, 1);
 	}
 
@@ -1530,6 +1533,14 @@
 		height: 50%;
 		gap: 12px;
 		align-content: start;
+		backface-visibility: hidden;
+		transform-origin: 50% 100%;
+		transition: transform 0.62s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.4s ease;
+
+		&:last-child {
+			transform: rotateX(-12deg) translateZ(-22px);
+			opacity: 0.72;
+		}
 	}
 
 	.noesis-feature__icon {
@@ -1556,6 +1567,16 @@
 			.noesis-features__track {
 				transform: translateY(-50%);
 			}
+
+			.noesis-features__content:first-child {
+				transform: rotateX(12deg) translateZ(-22px);
+				opacity: 0.72;
+			}
+
+			.noesis-features__content:last-child {
+				transform: rotateX(0) translateZ(0);
+				opacity: 1;
+			}
 		}
 	}
 
@@ -1576,6 +1597,10 @@
 
 @media (prefers-reduced-motion: reduce) {
 	.noesis-features__track {
+		transition: none;
+	}
+
+	.noesis-features__content {
 		transition: none;
 	}
 }
