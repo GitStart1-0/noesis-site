@@ -1143,7 +1143,6 @@
 }
 
 .noesis-intro {
-	--kicker-color: var(--accent);
 	position: relative;
 	overflow: hidden;
 	background: #14130f;
@@ -1159,6 +1158,10 @@
 	&__copy {
 		display: grid;
 		gap: 26px;
+	}
+
+	.noesis-kicker {
+		color: var(--accent);
 	}
 
 	.noesis-title {
@@ -1306,25 +1309,12 @@
 }
 
 .noesis-kicker {
-	--kicker-color: var(--accent);
-	display: inline-flex;
-	align-items: center;
-	gap: 12px;
-	color: var(--kicker-color);
+	color: var(--soft);
 	font-family: "Courier New", monospace;
 	font-size: 12px;
 	font-weight: 900;
 	letter-spacing: 0.14em;
-	line-height: 1.3;
 	text-transform: uppercase;
-
-	&::before {
-		content: "";
-		width: 26px;
-		height: 1px;
-		flex: 0 0 26px;
-		background: currentColor;
-	}
 }
 
 .noesis-title {
@@ -1523,6 +1513,19 @@
 		padding-block-end: 54px;
 	}
 
+	.noesis-kicker {
+		color: var(--accent);
+
+		&::before {
+			content: "";
+			display: inline-block;
+			width: 26px;
+			height: 1px;
+			margin: 0 12px 4px 0;
+			background: currentColor;
+		}
+	}
+
 	.noesis-title em {
 		color: var(--accent);
 		font-style: italic;
@@ -1546,18 +1549,15 @@
 
 		.noesis-kicker {
 			display: flex;
+			align-items: center;
+			gap: 18px;
 			margin: 0;
-			width: 100%;
-
-			&::before {
-				display: none;
-			}
+			color: var(--accent);
 
 			&::after {
 				content: "";
 				flex: 1 1 auto;
-				border-top: 1px solid currentColor;
-				opacity: 0.32;
+				border-top: 1px solid rgba(247, 241, 229, 0.14);
 			}
 		}
 	}
@@ -1778,8 +1778,11 @@
 }
 
 .noesis-methodology {
-	--kicker-color: #8a642c;
 	background: #f5f0e4;
+
+	.noesis-kicker {
+		color: #8a642c;
+	}
 
 	&__grid {
 		display: grid;
@@ -2088,7 +2091,6 @@
 }
 
 .noesis-cta {
-	--kicker-color: var(--accent);
 	padding-block: 92px;
 	background: var(--ink);
 	color: #f9f7f2;
@@ -2098,6 +2100,10 @@
 		display: grid;
 		justify-items: center;
 		gap: 24px;
+	}
+
+	.noesis-kicker {
+		color: #4a4a4a;
 	}
 
 	h2 {
