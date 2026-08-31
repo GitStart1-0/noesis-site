@@ -1491,6 +1491,7 @@
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 22px;
+	perspective: 1100px;
 
 	article {
 		position: relative;
@@ -1503,7 +1504,10 @@
 		border: 1px solid var(--line);
 		border-radius: 3px;
 		background: var(--paper);
-		transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+		transform: rotateX(0) translateY(0);
+		transform-origin: 50% 0;
+		transform-style: preserve-3d;
+		transition: border-color 0.35s ease, box-shadow 0.45s ease, transform 0.56s cubic-bezier(0.22, 0.61, 0.36, 1);
 
 		&::after {
 			content: counter(feature, decimal-leading-zero);
@@ -1517,8 +1521,8 @@
 
 		&:hover {
 			border-color: var(--accent);
-			box-shadow: 0 16px 34px rgba(98, 71, 32, 0.1);
-			transform: translateY(-2px);
+			box-shadow: 0 24px 34px rgba(98, 71, 32, 0.16);
+			transform: rotateX(-9deg) translateY(-8px);
 		}
 	}
 
@@ -1530,12 +1534,24 @@
 		justify-content: center;
 		margin-block-end: 20px;
 
-		img {
+		svg {
 			width: 30px;
 			height: 30px;
-			object-fit: contain;
-			filter: sepia(0.78) saturate(1.25) hue-rotate(350deg);
+			fill: none;
+			stroke: var(--accent);
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			stroke-width: 1.45;
+
+			path {
+				stroke-dasharray: 180;
+				stroke-dashoffset: 180;
+			}
 		}
+	}
+
+	article:hover .noesis-feature__icon svg path {
+		animation: noesis-feature-icon-draw 0.88s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 	}
 
 	h3 {
@@ -1550,6 +1566,33 @@
 		font-size: 14px;
 		font-weight: 300;
 		line-height: 1.55;
+	}
+}
+
+@keyframes noesis-feature-icon-draw {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@media (hover: none) {
+	.noesis-feature__icon svg path {
+		stroke-dashoffset: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.noesis-features article {
+		transition: none;
+
+		&:hover {
+			transform: none;
+		}
+	}
+
+	.noesis-feature__icon svg path {
+		animation: none;
+		stroke-dashoffset: 0;
 	}
 }
 
