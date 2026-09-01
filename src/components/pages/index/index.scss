@@ -1855,6 +1855,7 @@
 		max-width: 360px;
 		font-size: 44px;
 		line-height: 1.18;
+		text-wrap: balance;
 	}
 
 	&__figure {
@@ -1939,6 +1940,11 @@
 			font-size: 10px;
 			font-weight: 700;
 			vertical-align: super;
+
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
 		}
 	}
 
@@ -2007,6 +2013,7 @@
 		margin: 10px 0 0;
 		padding: 20px 0 0 20px;
 		border-top: 1px solid rgba(28, 25, 18, 0.14);
+		list-style: decimal;
 		color: #847b6c;
 		font-family: "Plus Jakarta Sans", Inter, Arial, sans-serif;
 		font-size: 12px;
