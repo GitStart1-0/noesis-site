@@ -13,6 +13,15 @@
 	font-family: "Plus Jakarta Sans", Inter, Arial, sans-serif;
 }
 
+.noesis-cursor-trail {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
 .noesis-section__inner,
 .noesis-hero__inner,
 .noesis-cta__inner {
@@ -1833,16 +1842,31 @@
 }
 
 .noesis-methodology {
+	position: relative;
+	overflow: hidden;
 	background: #f5f0e4;
+	cursor: default;
+
+	* {
+		cursor: inherit;
+	}
+
+	a {
+		cursor: pointer;
+	}
 
 	.noesis-kicker {
 		color: #8a642c;
 	}
 
 	&__grid {
+		position: relative;
+		z-index: 1;
 		display: grid;
-		grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
-		gap: clamp(48px, 7vw, 104px);
+		grid-template-columns: minmax(280px, 354px) minmax(0, 540px);
+		gap: clamp(64px, 7vw, 104px);
+		max-width: 1180px;
+		margin-inline: auto;
 		align-items: start;
 	}
 
@@ -1853,6 +1877,7 @@
 
 	&__rail .noesis-title {
 		max-width: 360px;
+		font-family: "Fraunces", Georgia, "Times New Roman", serif;
 		font-size: 44px;
 		line-height: 1.18;
 		text-wrap: balance;
@@ -2009,11 +2034,25 @@
 		line-height: 1.45;
 	}
 
+	&__source {
+		margin-top: 12px !important;
+		color: #736959;
+		font-size: 13px;
+
+		a {
+			color: #70501f;
+			font-weight: 700;
+			text-decoration-color: rgba(112, 80, 31, 0.35);
+			text-underline-offset: 2px;
+		}
+	}
+
 	&__notes {
 		margin: 10px 0 0;
-		padding: 20px 0 0 20px;
+		padding: 20px 0 0;
 		border-top: 1px solid rgba(28, 25, 18, 0.14);
-		list-style: decimal;
+		list-style: none;
+		counter-reset: methodology-note;
 		color: #847b6c;
 		font-family: "Plus Jakarta Sans", Inter, Arial, sans-serif;
 		font-size: 12px;
@@ -2021,17 +2060,22 @@
 		line-height: 1.7;
 
 		li {
-			padding-inline-start: 4px;
+			display: grid;
+			grid-template-columns: 18px minmax(0, 1fr);
+			column-gap: 4px;
+			counter-increment: methodology-note;
+
+			&::before {
+				content: counter(methodology-note) ".";
+				color: #93692c;
+				font-family: "Courier New", monospace;
+				font-size: 11px;
+				font-weight: 700;
+			}
 		}
 
 		li + li {
 			margin-top: 6px;
-		}
-
-		li::marker {
-			color: #93692c;
-			font-family: "Courier New", monospace;
-			font-size: 11px;
 		}
 	}
 }
@@ -2117,97 +2161,6 @@
 
 	.noesis-methodology .noesis-methodology__node {
 		transform: scale(1);
-	}
-}
-
-.noesis-interface {
-	overflow: hidden;
-	border-top: 1px solid var(--line);
-	border-bottom: 1px solid var(--line);
-	background: var(--panel);
-}
-
-.mini-phones {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 26px;
-}
-
-.mini-phone {
-	width: 180px;
-	height: 370px;
-	padding: 8px;
-	border-radius: 32px;
-	background: var(--ink);
-
-	&--raised {
-		transform: translateY(-16px);
-	}
-
-	&__screen {
-		display: flex;
-		height: 100%;
-		flex-direction: column;
-		gap: 8px;
-		padding: 18px 14px 14px;
-		border-radius: 26px;
-
-		span {
-			font-size: 9px;
-			font-weight: 900;
-			letter-spacing: 0.12em;
-			opacity: 0.45;
-		}
-
-		b {
-			display: flex;
-			flex: 1;
-			align-items: center;
-			justify-content: center;
-			font-size: 44px;
-		}
-
-		strong {
-			font-size: 18px;
-			font-weight: 950;
-			line-height: 1;
-		}
-
-		small {
-			font-size: 10px;
-			opacity: 0.45;
-		}
-
-		em {
-			padding: 10px;
-			border-radius: 10px;
-			font-size: 10px;
-			font-style: normal;
-			font-weight: 900;
-			text-align: center;
-		}
-
-		&--dark {
-			background: var(--ink);
-			color: #fff;
-
-			em {
-				background: #fff;
-				color: var(--ink);
-			}
-		}
-
-		&--light {
-			border: 1px solid #e8e8e8;
-			background: #fff;
-			color: var(--ink);
-
-			em {
-				background: var(--ink);
-				color: #fff;
-			}
-		}
 	}
 }
 
@@ -2533,9 +2486,6 @@
 		}
 	}
 
-	.mini-phone--raised {
-		transform: none;
-	}
 }
 
 @media (prefers-reduced-motion: reduce) {

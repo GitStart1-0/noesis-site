@@ -95,6 +95,142 @@ function initTopicListHover() {
 
 initTopicListHover()
 
+function initCursorTrail() {
+	const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)')
+	const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+	const target = document.querySelector('.noesis-methodology')
+	if (!target || !supportsFinePointer.matches || reduceMotion.matches) return
+
+	const canvas = document.createElement('canvas')
+	canvas.className = 'noesis-cursor-trail'
+	canvas.setAttribute('aria-hidden', 'true')
+	target.append(canvas)
+
+	const context = canvas.getContext('2d')
+	const trails = []
+	const trailColor = '201, 165, 102'
+	const pointLifetime = 1200
+	const maxTrailLength = 600
+	let activeTrail
+	let brush
+	let lastMoveAt = 0
+	let frameRequested = false
+
+	const resize = () => {
+		const bounds = target.getBoundingClientRect()
+		const ratio = Math.min(window.devicePixelRatio || 1, 2)
+		canvas.width = Math.round(bounds.width * ratio)
+		canvas.height = Math.round(bounds.height * ratio)
+		context.setTransform(ratio, 0, 0, ratio, 0, 0)
+	}
+
+	const addPoint = (trail, x, y, time) => {
+		const previousPoint = trail.points.at(-1)
+		if (previousPoint && Math.hypot(x - previousPoint.x, y - previousPoint.y) < 1) return
+
+		trail.points.push({ x, y, time })
+		let length = 0
+
+		for (let index = trail.points.length - 1; index > 0; index -= 1) {
+			const point = trail.points[index]
+			const previous = trail.points[index - 1]
+			length += Math.hypot(point.x - previous.x, point.y - previous.y)
+
+			if (length > maxTrailLength) {
+				trail.points.splice(0, index)
+				break
+			}
+		}
+	}
+
+	const drawTrail = (trail, now) => {
+		const latestPoint = trail.points.at(-1)
+		const points = trail.points.filter((point) => point === latestPoint || now - point.time < pointLifetime)
+		trail.points = points
+		if (points.length < 2) return now - points[0].time < pointLifetime
+
+		context.beginPath()
+		context.moveTo(points[0].x, points[0].y)
+
+		for (let index = 1; index < points.length - 1; index += 1) {
+			const point = points[index]
+			const nextPoint = points[index + 1]
+			context.quadraticCurveTo(point.x, point.y, (point.x + nextPoint.x) / 2, (point.y + nextPoint.y) / 2)
+		}
+
+		const lastPoint = points[points.length - 1]
+		context.lineTo(lastPoint.x, lastPoint.y)
+		context.strokeStyle = `rgba(${trail.color}, 0.5)`
+		context.lineWidth = 1.5
+		context.lineCap = 'round'
+		context.lineJoin = 'round'
+		context.stroke()
+		return true
+	}
+
+	const render = (now) => {
+		frameRequested = false
+		context.clearRect(0, 0, canvas.width, canvas.height)
+
+		if (brush) {
+			brush.x += (brush.targetX - brush.x) * 0.18
+			brush.y += (brush.targetY - brush.y) * 0.18
+			addPoint(brush.trail, brush.x, brush.y, now)
+
+			if (Math.hypot(brush.targetX - brush.x, brush.targetY - brush.y) < 0.5) brush = undefined
+		}
+
+		for (let index = trails.length - 1; index >= 0; index -= 1) {
+			if (!drawTrail(trails[index], now)) trails.splice(index, 1)
+		}
+
+		if (trails.length || brush) {
+			frameRequested = true
+			window.requestAnimationFrame(render)
+		}
+	}
+
+	target.addEventListener('pointermove', (event) => {
+		if (event.pointerType !== 'mouse') return
+
+		const now = performance.now()
+		const bounds = target.getBoundingClientRect()
+		const x = event.clientX - bounds.left
+		const y = event.clientY - bounds.top
+
+		if (!activeTrail || now - lastMoveAt > 160) {
+			activeTrail = { color: trailColor, points: [] }
+			trails.push(activeTrail)
+			brush = { trail: activeTrail, x, y, targetX: x, targetY: y }
+			addPoint(activeTrail, x, y, now)
+		} else if (!brush) {
+			const lastPoint = activeTrail.points.at(-1) || { x, y }
+			brush = { trail: activeTrail, x: lastPoint.x, y: lastPoint.y, targetX: x, targetY: y }
+		} else if (brush) {
+			brush.targetX = x
+			brush.targetY = y
+		}
+
+		lastMoveAt = now
+
+		if (!frameRequested) {
+			frameRequested = true
+			window.requestAnimationFrame(render)
+		}
+	}, { passive: true })
+
+	target.addEventListener('pointerleave', () => {
+		activeTrail = undefined
+		brush = undefined
+		lastMoveAt = 0
+	})
+
+	new ResizeObserver(resize).observe(target)
+	resize()
+}
+
+initCursorTrail()
+
 const phoneSlider = document.querySelector('[data-phone-slider]')
 const phoneSlides = phoneSlider?.querySelectorAll('.swiper-slide')
 
