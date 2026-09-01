@@ -35,6 +35,29 @@ function initFeatureCardLoops() {
 
 initFeatureCardLoops()
 
+function initQuestionCardTilt() {
+	const visual = document.querySelector('.noesis-intro__visual')
+	const stack = visual?.querySelector('.noesis-question-card__stack')
+	const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)')
+
+	if (!visual || !stack || !supportsHover.matches) return
+
+	visual.addEventListener('pointermove', (event) => {
+		const rect = visual.getBoundingClientRect()
+		const offsetX = (event.clientX - rect.left) / rect.width - 0.5
+		const offsetY = (event.clientY - rect.top) / rect.height - 0.5
+		stack.style.transition = 'none'
+		stack.style.transform = `rotateY(${offsetX * 14}deg) rotateX(${-offsetY * 10}deg) scale(1.03)`
+	})
+
+	visual.addEventListener('pointerleave', () => {
+		stack.style.transition = ''
+		stack.style.transform = ''
+	})
+}
+
+initQuestionCardTilt()
+
 function initTopicListHover() {
 	const topicList = document.querySelector('.noesis-topic-list')
 	const rows = topicList ? [...topicList.querySelectorAll('li')] : []

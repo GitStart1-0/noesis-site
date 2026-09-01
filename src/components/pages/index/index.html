@@ -10,11 +10,17 @@
 					й переходьте від цікавого факту до нового запитання.
 				</p>
 				<div class="noesis-hero__actions">
-					<button class="noesis-release noesis-release--android" type="button" disabled data-release-countdown data-release-date="2026-11-01T00:00:00+01:00">
-						<span class="noesis-release__platform">Завантажити для Android</span><span class="noesis-release__status">Відкриється 1 листопада 2026</span><strong class="noesis-release__timer" aria-live="polite"></strong>
+					<button class="noesis-release noesis-release--android" type="button" disabled data-release-countdown
+						data-release-date="2026-11-01T00:00:00+01:00">
+						<span class="noesis-release__platform">Завантажити для Android</span><span
+							class="noesis-release__status">Відкриється 1 листопада 2026</span><strong class="noesis-release__timer"
+							aria-live="polite"></strong>
 					</button>
-					<button class="noesis-release noesis-release--ios" type="button" disabled data-release-countdown data-release-date="2028-01-01T00:00:00+01:00">
-						<span class="noesis-release__platform">Завантажити для iOS</span><span class="noesis-release__status">Відкриється 1 січня 2028</span><strong class="noesis-release__timer" aria-live="polite"></strong>
+					<button class="noesis-release noesis-release--ios" type="button" disabled data-release-countdown
+						data-release-date="2028-01-01T00:00:00+01:00">
+						<span class="noesis-release__platform">Завантажити для iOS</span><span
+							class="noesis-release__status">Відкриється 1 січня 2028</span><strong class="noesis-release__timer"
+							aria-live="polite"></strong>
 					</button>
 				</div>
 			</div>
@@ -109,14 +115,26 @@
 						працює <span aria-hidden="true">→</span></a>
 				</div>
 			</div>
-			<div class="noesis-intro__visual" aria-hidden="true">
-				<div class="noesis-question-card noesis-question-card--back">Питання, що змінюють оптику</div>
-				<div class="noesis-question-card noesis-question-card--side">Історія · 014<br><br>Хто вигадав час?</div>
-				<article class="noesis-question-card noesis-question-card--front"><span>ЕКСПОНАТ ДНЯ</span><small>БІОЛОГІЯ ·
-						014</small>
-					<h3>Чому античні статуї, які ми звикли бачити білосніжними, насправді були яскраво розфарбовані?</h3>
-					<footer><b>●&nbsp; з поясненням</b><b>джерело: 2</b></footer>
-				</article>
+			<div class="noesis-intro__visual" aria-hidden="true" data-fls-watcher data-fls-watcher-once
+				data-fls-watcher-threshold="0.35">
+				<div class="noesis-question-card__stack">
+					<div class="noesis-question-card__shell noesis-question-card__shell--back">
+						<div class="noesis-question-card noesis-question-card--back noesis-question-card__motion"></div>
+					</div>
+					<div class="noesis-question-card__shell noesis-question-card__shell--mid">
+						<div class="noesis-question-card noesis-question-card--mid noesis-question-card__motion"></div>
+					</div>
+					<div class="noesis-question-card__shell noesis-question-card__shell--front">
+						<article class="noesis-question-card noesis-question-card--front noesis-question-card__motion">
+							<span>ЕКСПОНАТ ДНЯ</span>
+							<div class="noesis-question-card__content">
+								<small>ТЕХНОЛОГІЇ · 600</small>
+								<h3>Чи можна зберегти сонячну енергію літа, щоб використати її взимку?</h3>
+								<footer><b>З поясненням</b><b>Джерел: 2</b></footer>
+							</div>
+						</article>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -130,7 +148,7 @@
 			<div class="noesis-features">
 				<article><span class="noesis-feature__icon"><img src="@img/png/001-quiz.png" alt=""></span>
 					<h3>Вікторини</h3>
-					<p>11 типів питань - від вибору відповіді до послідовностей та дебатів.</p>
+					<p>15 типів питань - від вибору відповіді до послідовностей та дебатів.</p>
 				</article>
 				<article><span class="noesis-feature__icon"><img src="@img/png/006-data-science.png" alt=""></span>
 					<h3>Рівні та прогрес</h3>
@@ -158,40 +176,132 @@
 
 	<section id="categories" class="noesis-section noesis-topics" data-section-pagination-item>
 		<div class="noesis-section__inner noesis-topics__grid">
-			<div class="noesis-topics__line"><p class="noesis-kicker">Каталог знань</p></div>
+			<div class="noesis-topics__line">
+				<p class="noesis-kicker">Каталог знань</p>
+			</div>
 			<div class="noesis-topics__copy">
 				<h2 class="noesis-title">Вісім напрямів <em>пізнання</em></h2>
 				<p class="noesis-text">Від квантової фізики до античної філософії - контент охоплює широкий спектр
 					інтелектуального пізнання.</p>
-				<div class="noesis-topics__stats" aria-label="Статистика каталогу"><div><strong>290+</strong><span>концептів</span></div><div><strong>15</strong><span>типів питань</span></div></div>
+				<div class="noesis-topics__stats" aria-label="Статистика каталогу">
+					<div><strong>290+</strong><span>концептів</span></div>
+					<div><strong>15</strong><span>типів питань</span></div>
+				</div>
 			</div>
 			<ol class="noesis-topic-list">
-				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">001</span><svg class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-4 8a3 3 0 0 0 3 4h6a3 3 0 0 0 3-4l-4-8V3M8 15h8"/></svg><div><h3>Наука</h3><p>Фізика, хімія, астрономія</p></div></li>
-				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">020</span><svg class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M12 3a6 6 0 0 0-3 11v2h6v-2a6 6 0 0 0-3-11Z"/></svg><div><h3>Ерудиція</h3><p>Загальні знання, факти</p></div></li>
-				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">100</span><svg class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-6 9 6M5 10v9M9 10v9M15 10v9M19 10v9M3 20h18"/></svg><div><h3>Філософія</h3><p>Ідеї, логіка, етика</p></div></li>
-				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">300</span><svg class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2"/><path d="M3 20c0-3 2-5 6-5s6 2 6 5M15 15c3 0 5 2 5 5"/></svg><div><h3>Суспільство</h3><p>Соціологія, право, політика</p></div></li>
-				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">580</span><svg class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C11 4 5 8 5 16c0 2 1 4 3 4 8 0 12-7 12-16ZM5 20c4-5 7-8 12-11"/></svg><div><h3>Екологія</h3><p>Клімат, біосфера, довкілля</p></div></li>
-				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">600</span><svg class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><div><h3>Технології</h3><p>Інженерія, IT, винаходи</p></div></li>
-				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">700</span><svg class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v10c0 2 3 3 7 3s7-1 7-3V6"/></svg><div><h3>Культура</h3><p>Мистецтво, музика, кіно</p></div></li>
-				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">900</span><svg class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12M6 21h12M7 3c0 5 10 5 10 10s-10 5-10 8M17 3c0 5-10 5-10 10s10 5 10 8"/></svg><div><h3>Історія</h3><p>Цивілізації, події, постаті</p></div></li>
+				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">001</span><svg
+						class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true">
+						<path d="M9 3h6M10 3v6l-4 8a3 3 0 0 0 3 4h6a3 3 0 0 0 3-4l-4-8V3M8 15h8" />
+					</svg>
+					<div>
+						<h3>Наука</h3>
+						<p>Фізика, хімія, астрономія</p>
+					</div>
+				</li>
+				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">020</span><svg
+						class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true">
+						<path d="M9 18h6M12 3a6 6 0 0 0-3 11v2h6v-2a6 6 0 0 0-3-11Z" />
+					</svg>
+					<div>
+						<h3>Ерудиція</h3>
+						<p>Загальні знання, факти</p>
+					</div>
+				</li>
+				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">100</span><svg
+						class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true">
+						<path d="m3 10 9-6 9 6M5 10v9M9 10v9M15 10v9M19 10v9M3 20h18" />
+					</svg>
+					<div>
+						<h3>Філософія</h3>
+						<p>Ідеї, логіка, етика</p>
+					</div>
+				</li>
+				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">300</span><svg
+						class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true">
+						<circle cx="9" cy="8" r="3" />
+						<circle cx="17" cy="10" r="2" />
+						<path d="M3 20c0-3 2-5 6-5s6 2 6 5M15 15c3 0 5 2 5 5" />
+					</svg>
+					<div>
+						<h3>Суспільство</h3>
+						<p>Соціологія, право, політика</p>
+					</div>
+				</li>
+				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">580</span><svg
+						class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true">
+						<path d="M20 4C11 4 5 8 5 16c0 2 1 4 3 4 8 0 12-7 12-16ZM5 20c4-5 7-8 12-11" />
+					</svg>
+					<div>
+						<h3>Екологія</h3>
+						<p>Клімат, біосфера, довкілля</p>
+					</div>
+				</li>
+				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">600</span><svg
+						class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true">
+						<circle cx="12" cy="12" r="3" />
+						<path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2" />
+					</svg>
+					<div>
+						<h3>Технології</h3>
+						<p>Інженерія, IT, винаходи</p>
+					</div>
+				</li>
+				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">700</span><svg
+						class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true">
+						<ellipse cx="12" cy="6" rx="7" ry="3" />
+						<path d="M5 6v10c0 2 3 3 7 3s7-1 7-3V6" />
+					</svg>
+					<div>
+						<h3>Культура</h3>
+						<p>Мистецтво, музика, кіно</p>
+					</div>
+				</li>
+				<li data-fls-watcher data-fls-watcher-once><span class="noesis-topic-list__number">900</span><svg
+						class="noesis-topic-list__icon" viewBox="0 0 24 24" aria-hidden="true">
+						<path d="M6 3h12M6 21h12M7 3c0 5 10 5 10 10s-10 5-10 8M17 3c0 5-10 5-10 10s10 5 10 8" />
+					</svg>
+					<div>
+						<h3>Історія</h3>
+						<p>Цивілізації, події, постаті</p>
+					</div>
+				</li>
 			</ol>
 		</div>
 	</section>
 
-	<section id="debates" class="noesis-section noesis-methodology" data-section-pagination-item data-fls-watcher data-fls-watcher-once>
+	<section id="debates" class="noesis-section noesis-methodology" data-section-pagination-item data-fls-watcher
+		data-fls-watcher-once>
 		<div class="noesis-section__inner noesis-methodology__grid">
 			<div class="noesis-methodology__rail" data-method-reveal>
 				<p class="noesis-kicker">Як побудований контент</p>
 				<h2 class="noesis-title">Питання, яке не закінчується відповіддю</h2>
 				<figure class="noesis-methodology__figure">
-					<svg viewBox="0 0 240 94" aria-hidden="true"><path class="noesis-methodology__line" d="M31 38H114M126 38H209"/><circle class="noesis-methodology__node noesis-methodology__node--one" cx="25" cy="38" r="6"/><circle class="noesis-methodology__node noesis-methodology__node--two" cx="120" cy="38" r="6"/><circle class="noesis-methodology__node noesis-methodology__node--three" cx="215" cy="38" r="6"/><text x="25" y="70">ПИТАННЯ</text><text x="120" y="70">ПОЯСНЕННЯ</text><text x="215" y="70">ДЖЕРЕЛО</text></svg>
+					<svg viewBox="0 0 240 94" aria-hidden="true">
+						<path class="noesis-methodology__line noesis-methodology__line--one" pathLength="1" d="M16 38H114" />
+						<path class="noesis-methodology__line noesis-methodology__line--two" pathLength="1" d="M126 38H224" />
+						<circle class="noesis-methodology__node noesis-methodology__node--one" cx="10" cy="38" r="6" />
+						<circle class="noesis-methodology__node noesis-methodology__node--two" cx="120" cy="38" r="6" />
+						<circle class="noesis-methodology__node noesis-methodology__node--three" cx="230" cy="38" r="6" /><text
+							x="0" y="70">ПИТАННЯ</text><text x="120" y="70" text-anchor="middle">ПОЯСНЕННЯ</text><text x="240" y="70" text-anchor="end">ДЖЕРЕЛО</text>
+					</svg>
 				</figure>
 			</div>
 			<div class="noesis-methodology__copy">
-				<p class="noesis-methodology__lead" data-method-reveal>Більшість тестових застосунків завершують взаємодію одразу після відповіді. Mythos: Quiz додає ще один крок - пояснення, яке з'являється незалежно від результату, і посилання на джерело факту.</p>
-				<p data-method-reveal>Частина завдань виходить за межі формату «одна правильна відповідь». Встановлення відповідності, впорядкування послідовності та порівняння текстів допомагають зіставляти інформацію, а не лише пригадувати її.</p>
-				<aside class="noesis-methodology__inset" data-method-reveal><p class="noesis-methodology__label">Приклад</p><p class="noesis-methodology__question">«Чому античні статуї, які ми звикли бачити білосніжними, насправді були яскраво розфарбовані?»</p><p><b>Пояснення:</b> барвники на мармурі руйнувалися під впливом часу й ерозії; сучасні дослідження виявляють залишки пігменту. <b>Джерело:</b> відкрита археологічна публікація.</p></aside>
-				<p data-method-reveal>Контент проходить фахову перевірку до публікації. Це не виключає помилок, але переносить більшість виправлень на етап рецензії, а не після релізу.</p>
+				<p class="noesis-methodology__lead" data-method-reveal>Більшість тестових застосунків завершують взаємодію
+					одразу після відповіді. Mythos: Quiz додає ще один крок - пояснення, яке з'являється незалежно від результату,
+					і посилання на джерело факту.</p>
+				<p data-method-reveal>Частина завдань виходить за межі формату «одна правильна відповідь». Встановлення
+					відповідності, впорядкування послідовності та порівняння текстів допомагають зіставляти інформацію, а не лише
+					пригадувати її.</p>
+				<aside class="noesis-methodology__inset" data-method-reveal>
+					<p class="noesis-methodology__label">Приклад</p>
+					<p class="noesis-methodology__question">«Чому компаси працюють навіть під час сонячних бур, хоча магнітне
+						поле Землі в цей час сильно збурюється?»</p>
+					<p><b>Пояснення:</b> навіть під час бур магнітне поле Землі залишається незрівнянно сильнішим за збурення від
+						сонячного вітру, тому стрілка компаса все одно орієнтується на глобальний магнітний напрям.</p>
+				</aside>
+				<p data-method-reveal>Контент проходить фахову перевірку до публікації. Це не виключає помилок, але переносить
+					більшість виправлень на етап рецензії, а не після релізу.</p>
 			</div>
 		</div>
 	</section>
