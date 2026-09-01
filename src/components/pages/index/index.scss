@@ -7,6 +7,13 @@
 	--line: #e8e4da;
 	--panel: #f2f0eb;
 	--accent: #c9a566;
+	--space-xs: 4px;
+	--space-sm: 8px;
+	--space-md: clamp(0.75rem, 0.65rem + 0.5vw, 1rem);
+	--space-lg: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+	--space-xl: clamp(1.5rem, 1.1rem + 2vw, 2.5rem);
+	--space-2xl: clamp(2rem, 1.2rem + 4vw, 4rem);
+	--space-3xl: clamp(3rem, 1.5rem + 7.5vw, 7.5rem);
 
 	background: var(--bg);
 	color: var(--ink);
@@ -25,7 +32,7 @@
 .noesis-section__inner,
 .noesis-hero__inner,
 .noesis-cta__inner {
-	width: calc(100% - 48px);
+	width: min(1120px, calc(100% - max(40px, 10vw)));
 	max-width: 1120px;
 	margin-inline: auto;
 }
@@ -1139,14 +1146,14 @@
 }
 
 .noesis-section {
-	padding-block: 80px;
+	padding-block: clamp(3rem, 2rem + 5vw, 7rem);
 
 	&__head {
 		display: grid;
-		gap: 22px;
+		gap: var(--space-lg);
 		max-width: 680px;
 		margin-inline: auto;
-		padding-block-end: 52px;
+		padding-block-end: var(--space-2xl);
 		text-align: center;
 	}
 }
@@ -1454,7 +1461,7 @@
 	counter-reset: feature;
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 22px;
+	gap: var(--space-lg);
 
 	article {
 		position: relative;
@@ -1574,7 +1581,7 @@
 
 	.noesis-section__head {
 		max-width: 760px;
-		padding-block-end: 54px;
+		padding-block-end: var(--space-2xl);
 	}
 
 	.noesis-kicker {
@@ -1604,7 +1611,7 @@
 		display: grid;
 		grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
 		@include adaptiveValue("column-gap", 96, 42);
-		row-gap: 22px;
+		row-gap: var(--space-lg);
 		align-items: start;
 	}
 
@@ -1629,7 +1636,7 @@
 	&__copy {
 		display: grid;
 		align-content: start;
-		gap: 26px;
+		gap: var(--space-xl);
 	}
 
 	.noesis-title {
@@ -1653,8 +1660,8 @@
 
 	&__stats {
 		display: flex;
-		gap: 34px;
-		padding-top: 12px;
+		gap: var(--space-xl);
+		padding-top: var(--space-md);
 
 		div {
 			display: grid;
@@ -1716,7 +1723,8 @@
 		column-gap: 20px;
 		align-items: center;
 		min-height: 96px;
-		padding: 16px 20px;
+		padding-block: clamp(1rem, 0.85rem + 0.7vw, 1.35rem);
+		padding-inline: clamp(0.75rem, 0.55rem + 1vw, 1.25rem);
 		border-bottom: 1px solid rgba(247, 241, 229, 0.14);
 		color: rgba(247, 241, 229, 0.58);
 		transition: color 0.42s ease, transform 0.45s ease, opacity 0.45s ease;
@@ -1872,7 +1880,7 @@
 
 	&__rail {
 		display: grid;
-		gap: 24px;
+		gap: var(--space-lg);
 	}
 
 	&__rail .noesis-title {
@@ -1885,8 +1893,8 @@
 
 	&__figure {
 		width: 100%;
-		margin: 10px 0 0;
-		padding-top: 30px;
+		margin: 0;
+		padding-top: var(--space-xl);
 		border-top: 1px solid rgba(28, 25, 18, 0.14);
 
 		svg {
@@ -1931,7 +1939,8 @@
 	}
 
 	&__caption {
-		margin: 14px 0 0;
+		margin: 0;
+		padding-top: var(--space-md);
 		color: #524c40;
 		font-family: "Plus Jakarta Sans", Inter, Arial, sans-serif;
 		font-size: 12px;
@@ -1946,7 +1955,7 @@
 
 	&__copy {
 		display: grid;
-		gap: 24px;
+		gap: var(--space-lg);
 		max-width: 700px;
 		color: #524c40;
 		font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -1986,8 +1995,8 @@
 	&__inset {
 		position: relative;
 		overflow: hidden;
-		margin-block: 2px;
-		padding: 24px 28px;
+		margin: 0;
+		padding: clamp(1.25rem, 1rem + 1.2vw, 2.1rem);
 		border-left: 2px solid #93692c;
 		background: rgba(147, 105, 44, 0.04);
 		color: #524c40;
@@ -2165,7 +2174,7 @@
 }
 
 .noesis-cta {
-	padding-block: 92px;
+	padding-block: clamp(3rem, 2rem + 5vw, 7rem);
 	background: var(--ink);
 	color: #f9f7f2;
 	text-align: center;
@@ -2173,7 +2182,7 @@
 	&__inner {
 		display: grid;
 		justify-items: center;
-		gap: 22px;
+		gap: var(--space-lg);
 	}
 
 	.noesis-kicker {
@@ -2307,17 +2316,6 @@
 }
 
 @media (max-width: 640px) {
-	.noesis-section__inner,
-	.noesis-hero__inner,
-	.noesis-cta__inner {
-		width: calc(100% - 32px);
-	}
-
-	.noesis-section,
-	.noesis-cta {
-		padding-block: 58px;
-	}
-
 	.noesis-hero {
 		@include adaptiveValue("padding-block-start", 44, 32, 0, 640, 320);
 		@include adaptiveValue("padding-block-end", 64, 48, 0, 640, 320);
